@@ -33,19 +33,21 @@ app.post("/sum", (req: Request, res: Response) => {
     const sum = numbers.reduce((a, b) => a + b, 0);
     res.json({ sum });
   } else {
-    res.status(400).json({ msg: "Invalid body" });
+    res.status(400).json({ message: "Invalid body" });
   }
 });
 
-
-app.post("/users", (req: Request, res: Response) => {
-  const { name, email } = req.body;
-  if (name && email) {
-    const newUser: TUser = { name, email };
+function isValidUser(user: any): user is TUser {
+  return user && typeof user.name === 'string' && typeof user.email === 'string';
+}
+app.post("/users", (req: Request<{}, {}, TUser>, res: Response) => {
+  const user = req.body;
+  if (isValidUser(user)) {
+    const newUser: TUser = { name: user.name, email: user.email };
     users.push(newUser);
     res.json({ message: "User successfully added" });
   } else {
-    res.status(400).json({ error: 'Name and email are required' });
+    res.status(400).json({ message: "User type must include 'email' and 'name'" });
   }
 
 });
