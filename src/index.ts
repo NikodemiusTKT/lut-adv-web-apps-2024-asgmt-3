@@ -53,7 +53,7 @@ app.post("/users", (req: Request<{}, {}, TUser>, res: Response) => {
 });
 
 app.get("/users", (req: Request, res: Response) => {
-  res.status(201).json(users);
+  res.status(201).json({users});
 });
 
 if (process.env.NODE_ENV !== "test") {
