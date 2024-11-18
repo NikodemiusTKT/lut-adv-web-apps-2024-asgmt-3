@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-interface TUser {
+type TUser = {
   name: string;
   email: string;
 }
