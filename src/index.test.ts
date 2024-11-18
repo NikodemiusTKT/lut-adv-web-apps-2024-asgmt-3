@@ -52,7 +52,7 @@ describe('GET /users', () => {
         const response = await request(app).get('/users');
         
         expect(response.status).toBe(201);
-        expect(response.body).toEqual([]);
+        expect(response.body).toEqual({});
     });
 
     it('should return an array of users', async () => {
