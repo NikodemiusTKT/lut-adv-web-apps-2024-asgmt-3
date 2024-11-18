@@ -33,7 +33,7 @@ app.post("/sum", (req: Request, res: Response) => {
     const sum = numbers.reduce((a, b) => a + b, 0);
     res.json({ sum });
   } else {
-    res.status(400).json({ message: "Invalid body" });
+    res.status(400).json({ error: "Invalid body" });
   }
 });
 
@@ -47,7 +47,7 @@ app.post("/users", (req: Request<{}, {}, TUser>, res: Response) => {
     users.push(newUser);
     res.json({ message: "User successfully added" });
   } else {
-    res.status(400).json({ message: "User type must include 'email' and 'name'" });
+    res.status(400).json({ error: "User type must include 'email' and 'name'" });
   }
 
 });

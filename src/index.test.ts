@@ -30,7 +30,7 @@ describe('POST /sum', () => {
             .send({ numbers: 'not an array' });
         
         expect(response.status).toBe(400);
-        expect(response.body.msg).toBe('Invalid body');
+        expect(response.body.error).toBe('Invalid body');
     });
 
     it('should return 400 if the body is missing', async () => {
@@ -39,7 +39,7 @@ describe('POST /sum', () => {
             .send({});
         
         expect(response.status).toBe(400);
-        expect(response.body.msg).toBe('Invalid body');
+        expect(response.body.error).toBe('Invalid body');
     });
 
 });
@@ -81,7 +81,7 @@ describe('POST /users', () => {
             .send({ name: 'Alice' }); // Missing email
         
         expect(response.status).toBe(400);
-        expect(response.body.error).toBe('Name and email are required');
+        expect(response.body.error).toBe("User type must include 'email' and 'name'");
     });
 
 });
