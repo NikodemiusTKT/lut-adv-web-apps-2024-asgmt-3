@@ -45,7 +45,7 @@ app.post("/users", (req: Request<{}, {}, TUser>, res: Response) => {
   if (isValidUser(user)) {
     const newUser: TUser = { name: user.name, email: user.email };
     users.push(newUser);
-    res.json({ message: "User successfully added" });
+    res.status(201).json({ message: "User successfully added" });
   } else {
     res.status(400).json({ error: "User type must include 'email' and 'name'" });
   }
@@ -53,7 +53,7 @@ app.post("/users", (req: Request<{}, {}, TUser>, res: Response) => {
 });
 
 app.get("/users", (req: Request, res: Response) => {
-  res.status(200).json(users);
+  res.status(201).json({users});
 });
 
 if (process.env.NODE_ENV !== "test") {

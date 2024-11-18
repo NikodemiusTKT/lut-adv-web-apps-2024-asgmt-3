@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(`Error: ${response.statusText}`);
       }
 
-      const users = await response.json();
+      const { users } = await response.json();
       userList.innerHTML = "";
       users.forEach((user) => {
         const li = document.createElement("li");
