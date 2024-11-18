@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#userForm");
-  const getUsersButton = document.querySelector("#getUsers");
+  const getUsersButton = document.querySelector("#getUser");
   const userList = document.querySelector("#userList");
 
   form.addEventListener("submit", async (e) => {
