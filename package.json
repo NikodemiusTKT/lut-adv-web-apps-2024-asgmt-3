@@ -4,7 +4,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "build": "tsc",
-    "start": "tsc-watch --onSuccess \"nodemon dist/app.js\""
+    "start": "tsc-watch --onSuccess \"nodemon dist/index.js\""
   },
   "keywords": [],
   "author": "",
